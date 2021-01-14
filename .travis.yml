@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true vivekharrai/react-test npm test
 
 after_success:
-  - docker build -t vivekharrai/multi-client ./client
-  - docker build -t vivekharrai/multi-nginx ./nginx
-  - docker build -t vivekharrai/multi-server ./server
-  - docker build -t vivekharrai/multi-worker ./worker
-  # Log in to the docker CLI
+  - docker build -t vivekjain28/multi-client ./client
+  - docker build -t vivekjain28/multi-nginx ./nginx
+  - docker build -t vivekjain28/multi-server ./server
+  - docker build -t vivekjain28/multi-worker ./worker
+  # Log in to the docker CLI   remember that docker push vivekjain28/multi-client      will work only when the docker hub username vivekjain28 is used in the tags ablove mentioned build steps. must be exactly same
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push vivekharrai/multi-client
-  - docker push vivekharrai/multi-nginx
-  - docker push vivekharrai/multi-server
-  - docker push vivekharrai/multi-worker
+  - docker push vivekjain28/multi-client
+  - docker push vivekjain28/multi-nginx
+  - docker push vivekjain28/multi-server
+  - docker push vivekjain28/multi-worker
