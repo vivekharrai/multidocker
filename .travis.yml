@@ -15,7 +15,7 @@ after_success:
   - docker build -t vivekjain28/multi-nginx ./nginx
   - docker build -t vivekjain28/multi-server ./server
   - docker build -t vivekjain28/multi-worker ./worker
-  # Log in to the docker CLI   remember that docker push vivekjain28/multi-client      will work only when the docker hub username vivekjain28 is used in the tags ablove mentioned build steps. must be exactly same
+  # Log in to the docker CLI   remember that docker push vivekjain28/multi-client This will work only when the docker hub username vivekjain28 is used in the tags ablove mentioned build steps. must be exactly same
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
   - docker push vivekjain28/multi-client
